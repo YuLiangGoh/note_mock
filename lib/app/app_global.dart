@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:note_mock/app/app_constant.dart';
+import 'package:note_mock/util/object_box_util.dart';
+
+/// The global instance of [ObjectBox].
+late ObjectBox objectbox;
 
 /// A global key for accessing the navigator state.
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
@@ -82,7 +86,7 @@ TextStyle textStyleW900({double? fontSize, Color? color, double? height}) =>
     TextStyle(
       fontWeight: FontWeight.w900,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
     );
 
@@ -91,7 +95,7 @@ TextStyle textStyleW800({double? fontSize, Color? color, double? height}) =>
     TextStyle(
       fontWeight: FontWeight.w800,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
     );
 
@@ -100,7 +104,7 @@ TextStyle textStyleW700({double? fontSize, Color? color, double? height}) =>
     TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
     );
 
@@ -113,7 +117,7 @@ TextStyle textStyleW600(
     TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
       decoration: textDecoration,
     );
@@ -123,7 +127,7 @@ TextStyle textStyleW500({double? fontSize, Color? color, double? height}) =>
     TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
     );
 
@@ -132,7 +136,7 @@ TextStyle textStyleW400({double? fontSize, Color? color, double? height}) =>
     TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
     );
 
@@ -141,7 +145,7 @@ TextStyle textStyleW300({double? fontSize, Color? color, double? height}) =>
     TextStyle(
       fontWeight: FontWeight.w300,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
     );
 
@@ -150,7 +154,7 @@ TextStyle textStyleW200({double? fontSize, Color? color, double? height}) =>
     TextStyle(
       fontWeight: FontWeight.w200,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
     );
 
@@ -159,7 +163,7 @@ TextStyle textStyleW100({double? fontSize, Color? color, double? height}) =>
     TextStyle(
       fontWeight: FontWeight.w100,
       fontSize: fontSize?.sp,
-      color: color ?? AppColor.dune,
+      color: color ?? AppColor.white,
       height: height,
     );
 

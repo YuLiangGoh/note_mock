@@ -4,8 +4,13 @@ import 'package:note_mock/app/app_global.dart';
 import 'package:note_mock/app/app_route.dart';
 import 'package:note_mock/gen/fonts.gen.dart';
 import 'package:note_mock/screen/dashboard/dashboard_page.dart';
+import 'package:note_mock/util/object_box_util.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  objectbox = await ObjectBox.create();
+
   runApp(const MyApp());
 }
 

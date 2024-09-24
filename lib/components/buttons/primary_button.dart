@@ -42,7 +42,7 @@ class PrimaryButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           title,
-          style: textStyleW600(),
+          style: textStyleW600(fontSize: 14),
         ),
       ),
     );

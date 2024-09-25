@@ -11,8 +11,8 @@ class AppBottomNavigationBar extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedIndex = ref.watch(appNaviagtionBarProvider);
-    final controller = ref.read(appNaviagtionBarProvider.notifier);
+    final selectedIndex = ref.watch(appNavigationBarProvider);
+    final controller = ref.read(appNavigationBarProvider.notifier);
     return Container(
       height: 100.h,
       decoration: BoxDecoration(

@@ -5,8 +5,8 @@ import 'package:note_mock/app/app_global.dart';
 import 'package:note_mock/class/entity/note.dart';
 import 'package:note_mock/gen/assets.gen.dart';
 
-class DashboardNoteItem extends StatelessWidget {
-  const DashboardNoteItem({
+class HomeNoteItem extends StatelessWidget {
+  const HomeNoteItem({
     super.key,
     required this.imgSrc,
     required this.title,

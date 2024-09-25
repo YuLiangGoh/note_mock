@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final appNaviagtionBarProvider =
+final appNavigationBarProvider =
     StateNotifierProvider<AppNavigationBarController, int>((ref) {
   return AppNavigationBarController();
 });

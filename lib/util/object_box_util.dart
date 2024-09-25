@@ -35,4 +35,8 @@ class ObjectBox {
         .build()
         .find();
   }
+
+  void deleteAllNotes() {
+    _noteBox.removeAll();
+  }
 }

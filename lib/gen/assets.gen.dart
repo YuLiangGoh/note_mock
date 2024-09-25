@@ -12,13 +12,18 @@ import 'package:flutter/widgets.dart';
 class $ResourcesGen {
   const $ResourcesGen();
 
+  /// Directory path: resources/images
   $ResourcesImagesGen get images => const $ResourcesImagesGen();
 }
 
 class $ResourcesImagesGen {
   const $ResourcesImagesGen();
 
+  /// Directory path: resources/images/home
   $ResourcesImagesHomeGen get home => const $ResourcesImagesHomeGen();
+
+  /// Directory path: resources/images/setting
+  $ResourcesImagesSettingGen get setting => const $ResourcesImagesSettingGen();
 }
 
 class $ResourcesImagesHomeGen {
@@ -84,6 +89,30 @@ class $ResourcesImagesHomeGen {
       ];
 }
 
+class $ResourcesImagesSettingGen {
+  const $ResourcesImagesSettingGen();
+
+  /// File path: resources/images/setting/about_us_icon.png
+  AssetGenImage get aboutUsIcon =>
+      const AssetGenImage('resources/images/setting/about_us_icon.png');
+
+  /// File path: resources/images/setting/online_customer_icon.png
+  AssetGenImage get onlineCustomerIcon =>
+      const AssetGenImage('resources/images/setting/online_customer_icon.png');
+
+  /// File path: resources/images/setting/privacy_policy_icon.png
+  AssetGenImage get privacyPolicyIcon =>
+      const AssetGenImage('resources/images/setting/privacy_policy_icon.png');
+
+  /// File path: resources/images/setting/user_agreement_icon.png
+  AssetGenImage get userAgreementIcon =>
+      const AssetGenImage('resources/images/setting/user_agreement_icon.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [aboutUsIcon, onlineCustomerIcon, privacyPolicyIcon, userAgreementIcon];
+}
+
 class Assets {
   Assets._();
 
@@ -91,9 +120,16 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName);
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
+
+  final Size? size;
+  final Set<String> flavors;
 
   Image image({
     Key? key,

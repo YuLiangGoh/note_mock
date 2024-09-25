@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:note_mock/app/app_constant.dart';
 import 'package:note_mock/app/app_global.dart';
+import 'package:note_mock/app/app_route.dart';
 import 'package:note_mock/components/app_bar/app_bar.dart';
 import 'package:note_mock/controller/note_controller.dart';
 import 'package:note_mock/gen/assets.gen.dart';
@@ -30,8 +31,13 @@ class HomeWidget extends HookConsumerWidget {
         title: 'Home',
         isAbleToBack: false,
         actions: [
-          Assets.resources.images.home.settingIcon.image(
-            width: 24.w,
+          GestureDetector(
+            onTap: () {
+              AppRoute.pushPage(AppRoute.setting);
+            },
+            child: Assets.resources.images.home.settingIcon.image(
+              width: 24.w,
+            ),
           )
         ],
       ),

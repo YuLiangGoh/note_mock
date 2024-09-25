@@ -12,18 +12,15 @@ import 'package:flutter/widgets.dart';
 class $ResourcesGen {
   const $ResourcesGen();
 
-  /// Directory path: resources/images
   $ResourcesImagesGen get images => const $ResourcesImagesGen();
 }
 
 class $ResourcesImagesGen {
   const $ResourcesImagesGen();
 
-  /// Directory path: resources/images/home
   $ResourcesImagesHomeGen get home => const $ResourcesImagesHomeGen();
-
-  /// Directory path: resources/images/setting
   $ResourcesImagesSettingGen get setting => const $ResourcesImagesSettingGen();
+  $ResourcesImagesSummaryGen get summary => const $ResourcesImagesSummaryGen();
 }
 
 class $ResourcesImagesHomeGen {
@@ -113,6 +110,34 @@ class $ResourcesImagesSettingGen {
       [aboutUsIcon, onlineCustomerIcon, privacyPolicyIcon, userAgreementIcon];
 }
 
+class $ResourcesImagesSummaryGen {
+  const $ResourcesImagesSummaryGen();
+
+  /// File path: resources/images/summary/avatar_1.png
+  AssetGenImage get avatar1 =>
+      const AssetGenImage('resources/images/summary/avatar_1.png');
+
+  /// File path: resources/images/summary/avatar_2.png
+  AssetGenImage get avatar2 =>
+      const AssetGenImage('resources/images/summary/avatar_2.png');
+
+  /// File path: resources/images/summary/avatar_3.png
+  AssetGenImage get avatar3 =>
+      const AssetGenImage('resources/images/summary/avatar_3.png');
+
+  /// File path: resources/images/summary/summary_eclipse.png
+  AssetGenImage get summaryEclipse =>
+      const AssetGenImage('resources/images/summary/summary_eclipse.png');
+
+  /// File path: resources/images/summary/summary_robot.png
+  AssetGenImage get summaryRobot =>
+      const AssetGenImage('resources/images/summary/summary_robot.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [avatar1, avatar2, avatar3, summaryEclipse, summaryRobot];
+}
+
 class Assets {
   Assets._();
 
@@ -120,16 +145,9 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  });
+  const AssetGenImage(this._assetName);
 
   final String _assetName;
-
-  final Size? size;
-  final Set<String> flavors;
 
   Image image({
     Key? key,

@@ -19,4 +19,7 @@ class AppColor {
   static const Color haiti1 = Color(0xFF1D0B37);
   static const Color regentGrey = Color(0XFF918DAC);
   static const Color errorRed = Color(0xFFE53935);
+  static const Color teaGreen = Color(0XFFC2F1CC);
+  static const Color frenchPass = Color(0XFFCAECFC);
+  static const Color palePeach = Color(0XFFFFE8AB);
 }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:note_mock/app/app_global.dart';
 import 'package:note_mock/screen/dashboard/dashboard_page.dart';
+import 'package:note_mock/screen/note/add_note_page.dart';
 
 class AppRoute {
   AppRoute._();
 
   static const String dashboard = '/dashboard';
-  static const String setting = '/setting';
-  static const String history = '/history';
+  static const String addNote = '/addNote';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     MaterialPageRoute<dynamic> materialPageRoute(Widget route) {
@@ -20,10 +20,8 @@ class AppRoute {
     switch (settings.name) {
       case dashboard:
         return materialPageRoute(const DashboardPage());
-      // case setting:
-      //   return materialPageRoute(const SettingPage());
-      // case history:
-      //   return materialPageRoute(const HistoryPage());
+      case addNote:
+        return materialPageRoute(const AddNotePage());
       default:
         return materialPageRoute(const DashboardPage());
     }

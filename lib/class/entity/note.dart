@@ -17,6 +17,7 @@ class Note {
 
   Note({
     this.id = 0,
+    this.type,
     this.content,
     this.createdAt,
   });

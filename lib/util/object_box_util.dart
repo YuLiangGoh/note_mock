@@ -1,4 +1,5 @@
 import 'package:note_mock/class/entity/note.dart';
+import 'package:note_mock/class/enum/note_type.dart';
 import 'package:note_mock/objectbox.g.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -21,8 +22,17 @@ class ObjectBox {
     return ObjectBox._create(store);
   }
 
-  Future<void> addNote(String content) => _noteBox.putAsync(Note(
+  Future<void> addNote(NoteType type, String content) => _noteBox.putAsync(Note(
+        type: type,
         content: content,
         createdAt: DateTime.now(),
       ));
+
+  List<Note> getAllNotesByType(NoteType type) {
+    return _noteBox
+        .query(Note_.typeId.equals(type.index))
+        .order(Note_.createdAt, flags: Order.descending)
+        .build()
+        .find();
+  }
 }

@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:note_mock/app/app_constant.dart';
 import 'package:note_mock/app/app_global.dart';
 import 'package:note_mock/components/app_bar/app_bar.dart';
+import 'package:note_mock/controller/note_controller.dart';
 import 'package:note_mock/gen/assets.gen.dart';
 import 'package:note_mock/screen/dashboard/component/home_note_item.dart';
 
-class HomeWidget extends StatelessWidget {
+class HomeWidget extends HookConsumerWidget {
   const HomeWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final noteViewModel = ref.watch(noteProvider);
+    final noteController = ref.read(noteProvider.notifier);
+
+    useEffect(() {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        noteController.getAllNotes();
+      });
+      return;
+    }, []);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppTitleBar(
@@ -56,22 +69,23 @@ class HomeWidget extends StatelessWidget {
                       imgSrc:
                           Assets.resources.images.home.workAndStudyIcon.path,
                       title: 'Work and study',
-                      notes: const [],
+                      notes: noteViewModel.workAndStudyNotes,
                     ),
                     gapHeight28,
                     HomeNoteItem(
                       imgSrc: Assets.resources.images.home.lifeIcon.path,
                       title: 'Life',
-                      notes: const [],
+                      notes: noteViewModel.lifeNotes,
                     ),
                     gapHeight28,
                     HomeNoteItem(
                       imgSrc: Assets
                           .resources.images.home.healthAndWellnessIcon.path,
                       title: 'Health and wellness',
-                      notes: const [],
+                      notes: noteViewModel.healthAndWellnessNotes,
                     ),
-                    gapHeight32,
+                    gapHeight80,
+                    gapHeight80,
                   ],
                 ),
               ),

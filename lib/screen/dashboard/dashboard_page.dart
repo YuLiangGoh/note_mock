@@ -23,6 +23,7 @@ class DashboardPage extends HookConsumerWidget {
 
     return Scaffold(
       extendBody: true,
+      resizeToAvoidBottomInset: false,
       body: PageView(
         controller: controller,
         physics: const NeverScrollableScrollPhysics(),

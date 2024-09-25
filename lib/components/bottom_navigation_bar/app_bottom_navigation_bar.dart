@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:note_mock/app/app_constant.dart';
 import 'package:note_mock/app/app_global.dart';
+import 'package:note_mock/app/app_route.dart';
 import 'package:note_mock/controller/app_navigation_bar_controller.dart';
 import 'package:note_mock/gen/assets.gen.dart';
 
@@ -53,8 +54,13 @@ class AppBottomNavigationBar extends HookConsumerWidget {
   }
 
   Widget addWidget() {
-    return Assets.resources.images.home.addIcon.image(
-      width: 36.w,
+    return GestureDetector(
+      onTap: () {
+        AppRoute.pushPage(AppRoute.addNote);
+      },
+      child: Assets.resources.images.home.addIcon.image(
+        width: 36.w,
+      ),
     );
   }
 

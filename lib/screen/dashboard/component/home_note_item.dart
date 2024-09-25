@@ -37,7 +37,13 @@ class HomeNoteItem extends StatelessWidget {
         if (notes.isNotEmpty)
           ...List.generate(
             notes.length > 3 ? 3 : notes.length,
-            (index) => noteItem(notes[index]),
+            (index) => Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                noteItem(notes[index]),
+                if (index != notes.length - 1) gapHeight12,
+              ],
+            ),
           ),
         if (notes.isEmpty)
           Container(
@@ -69,9 +75,9 @@ class HomeNoteItem extends StatelessWidget {
         ),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Flexible(
+          Expanded(
             child: Text(
               note.content ?? 'Unknown',
               style: textStyleW400(
@@ -79,6 +85,7 @@ class HomeNoteItem extends StatelessWidget {
                 color: AppColor.white.withOpacity(0.9),
               ),
               maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           gapWidth16,

@@ -12,14 +12,12 @@ import 'package:flutter/widgets.dart';
 class $ResourcesGen {
   const $ResourcesGen();
 
-  /// Directory path: resources/images
   $ResourcesImagesGen get images => const $ResourcesImagesGen();
 }
 
 class $ResourcesImagesGen {
   const $ResourcesImagesGen();
 
-  /// Directory path: resources/images/home
   $ResourcesImagesHomeGen get home => const $ResourcesImagesHomeGen();
 }
 
@@ -29,6 +27,10 @@ class $ResourcesImagesHomeGen {
   /// File path: resources/images/home/add_icon.png
   AssetGenImage get addIcon =>
       const AssetGenImage('resources/images/home/add_icon.png');
+
+  /// File path: resources/images/home/forward_arrow.png
+  AssetGenImage get forwardArrow =>
+      const AssetGenImage('resources/images/home/forward_arrow.png');
 
   /// File path: resources/images/home/health_and_wellness_icon.png
   AssetGenImage get healthAndWellnessIcon =>
@@ -69,6 +71,7 @@ class $ResourcesImagesHomeGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         addIcon,
+        forwardArrow,
         healthAndWellnessIcon,
         homeActiveIcon,
         homeInactiveIcon,
@@ -88,16 +91,9 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  });
+  const AssetGenImage(this._assetName);
 
   final String _assetName;
-
-  final Size? size;
-  final Set<String> flavors;
 
   Image image({
     Key? key,

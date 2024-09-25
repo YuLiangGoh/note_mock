@@ -15,11 +15,6 @@
           "flags": 1
         },
         {
-          "id": "2:6488819772178184025",
-          "name": "title",
-          "type": 9
-        },
-        {
           "id": "3:2601102833018513042",
           "name": "content",
           "type": 9
@@ -47,7 +42,8 @@
   "retiredEntityUids": [],
   "retiredIndexUids": [],
   "retiredPropertyUids": [
-    9177920410492610451
+    9177920410492610451,
+    6488819772178184025
   ],
   "retiredRelationUids": [],
   "version": 1

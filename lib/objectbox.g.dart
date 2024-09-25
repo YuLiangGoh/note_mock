@@ -31,11 +31,6 @@ final _entities = <obx_int.ModelEntity>[
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 6488819772178184025),
-            name: 'title',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(3, 2601102833018513042),
             name: 'content',
             type: 9,
@@ -96,7 +91,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
       lastSequenceId: const obx_int.IdUid(0, 0),
       retiredEntityUids: const [],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [9177920410492610451],
+      retiredPropertyUids: const [9177920410492610451, 6488819772178184025],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -112,13 +107,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.id = id;
         },
         objectToFB: (Note object, fb.Builder fbb) {
-          final titleOffset =
-              object.title == null ? null : fbb.writeString(object.title!);
           final contentOffset =
               object.content == null ? null : fbb.writeString(object.content!);
           fbb.startTable(7);
           fbb.addInt64(0, object.id);
-          fbb.addOffset(1, titleOffset);
           fbb.addOffset(2, contentOffset);
           fbb.addInt64(3, object.createdAt?.millisecondsSinceEpoch);
           fbb.addInt64(5, object.typeId);
@@ -132,18 +124,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 10);
           final idParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final titleParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
           final contentParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 8);
           final createdAtParam = createdAtValue == null
               ? null
               : DateTime.fromMillisecondsSinceEpoch(createdAtValue);
           final object = Note(
-              id: idParam,
-              title: titleParam,
-              content: contentParam,
-              createdAt: createdAtParam)
+              id: idParam, content: contentParam, createdAt: createdAtParam)
             ..typeId = const fb.Int64Reader()
                 .vTableGetNullable(buffer, rootOffset, 14);
 
@@ -159,19 +146,15 @@ class Note_ {
   /// See [Note.id].
   static final id = obx.QueryIntegerProperty<Note>(_entities[0].properties[0]);
 
-  /// See [Note.title].
-  static final title =
-      obx.QueryStringProperty<Note>(_entities[0].properties[1]);
-
   /// See [Note.content].
   static final content =
-      obx.QueryStringProperty<Note>(_entities[0].properties[2]);
+      obx.QueryStringProperty<Note>(_entities[0].properties[1]);
 
   /// See [Note.createdAt].
   static final createdAt =
-      obx.QueryDateProperty<Note>(_entities[0].properties[3]);
+      obx.QueryDateProperty<Note>(_entities[0].properties[2]);
 
   /// See [Note.typeId].
   static final typeId =
-      obx.QueryIntegerProperty<Note>(_entities[0].properties[4]);
+      obx.QueryIntegerProperty<Note>(_entities[0].properties[3]);
 }

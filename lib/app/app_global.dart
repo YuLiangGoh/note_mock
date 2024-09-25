@@ -45,6 +45,9 @@ final Widget gapWidth32 = SizedBox(width: 32.w);
 /// A constant widget representing a gap with a width of 40.
 final Widget gapWidth40 = SizedBox(width: 40.w);
 
+/// A constant widget representing a gap with a width of 50.
+final Widget gapWidth50 = SizedBox(width: 50.w);
+
 /// A constant widget representing a gap with a width of 80.
 final Widget gapWidth80 = SizedBox(width: 80.w);
 
@@ -68,6 +71,9 @@ final Widget gapHeight20 = SizedBox(height: 20.h);
 
 /// A constant widget representing a gap with a height of 24.
 final Widget gapHeight24 = SizedBox(height: 24.h);
+
+/// A constant widget representing a gap with a height of 28.
+final Widget gapHeight28 = SizedBox(height: 28.h);
 
 /// A constant widget representing a gap with a height of 32.
 final Widget gapHeight32 = SizedBox(height: 32.h);

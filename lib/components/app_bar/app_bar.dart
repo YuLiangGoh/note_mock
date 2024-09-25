@@ -23,7 +23,9 @@ class AppTitleBar extends StatelessWidget implements PreferredSizeWidget {
       systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.light,
+        statusBarColor: Colors.transparent,
       ),
+      backgroundColor: Colors.transparent,
       flexibleSpace: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w)
             .add(EdgeInsets.only(top: MediaQuery.of(context).padding.top)),
@@ -64,6 +66,7 @@ class AppTitleBar extends StatelessWidget implements PreferredSizeWidget {
                 title,
                 style: textStyleW600(fontSize: 24),
               ),
+              const Spacer(),
               if (actions != null) ...actions!,
             ],
           ),

@@ -10,8 +10,6 @@ class Note {
   @Transient()
   NoteType? type;
 
-  String? title;
-
   String? content;
 
   @Property(type: PropertyType.date)
@@ -19,7 +17,6 @@ class Note {
 
   Note({
     this.id = 0,
-    this.title,
     this.content,
     this.createdAt,
   });

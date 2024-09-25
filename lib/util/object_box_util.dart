@@ -21,8 +21,7 @@ class ObjectBox {
     return ObjectBox._create(store);
   }
 
-  Future<void> addNote(String title, String content) => _noteBox.putAsync(Note(
-        title: title,
+  Future<void> addNote(String content) => _noteBox.putAsync(Note(
         content: content,
         createdAt: DateTime.now(),
       ));

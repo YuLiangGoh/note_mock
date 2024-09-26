@@ -27,6 +27,8 @@ class ObjectBox {
         content: content,
         createdAt: DateTime.now(),
       ));
+  
+  Future<void> updateNote(Note note) => _noteBox.putAsync(note);
 
   List<Note> getAllNotesByType(NoteType type) {
     return _noteBox

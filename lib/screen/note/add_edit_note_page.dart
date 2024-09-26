@@ -3,17 +3,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:note_mock/app/app_constant.dart';
 import 'package:note_mock/app/app_global.dart';
+import 'package:note_mock/class/entity/note.dart';
 import 'package:note_mock/class/enum/note_type.dart';
 import 'package:note_mock/components/app_bar/app_bar.dart';
 import 'package:note_mock/components/buttons/primary_button.dart';
 import 'package:note_mock/controller/add_note_controller.dart';
 
-class AddNotePage extends HookConsumerWidget {
-  const AddNotePage({super.key});
+class AddEditNotePage extends HookConsumerWidget {
+  const AddEditNotePage({super.key, this.note});
+
+  final Note? note;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    AddNoteController.init();
+    AddNoteController.init(
+      type: note?.type,
+      content: note?.content,
+    );
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -22,7 +28,7 @@ class AddNotePage extends HookConsumerWidget {
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: false,
         extendBody: true,
-        appBar: const AppTitleBar(title: 'New note'),
+        appBar: AppTitleBar(title: note != null ? 'Edit Note' : 'New note'),
         body: Container(
           padding:
               EdgeInsets.only(top: 68.h + MediaQuery.of(context).padding.top),
@@ -51,6 +57,9 @@ class AddNotePage extends HookConsumerWidget {
                   children: [
                     gapHeight20,
                     DropdownButtonFormField(
+                      value: note == null
+                          ? null
+                          : AddNoteController.noteTypeNotifier.value,
                       hint: Text(
                         'Choose a category',
                         style: textStyleW400(
@@ -102,6 +111,12 @@ class AddNotePage extends HookConsumerWidget {
                           borderRadius: BorderRadius.circular(16),
                         ),
                         errorBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: AppColor.errorRed,
+                          ),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                             color: AppColor.errorRed,
                           ),
@@ -218,7 +233,9 @@ class AddNotePage extends HookConsumerWidget {
       child: Center(
         child: PrimaryButton(
           title: 'Save',
-          onPressed: () => AddNoteController.createNote(ref),
+          onPressed: () => note == null
+              ? AddNoteController.createNote(ref)
+              : AddNoteController.updateNote(note!, ref),
         ),
       ),
     );

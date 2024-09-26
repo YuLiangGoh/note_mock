@@ -56,7 +56,7 @@ class AppBottomNavigationBar extends HookConsumerWidget {
   Widget addWidget() {
     return GestureDetector(
       onTap: () {
-        AppRoute.pushPage(AppRoute.addNote);
+        AppRoute.pushPage(AppRoute.addEditNote);
       },
       child: Assets.resources.images.home.addIcon.image(
         width: 36.w,

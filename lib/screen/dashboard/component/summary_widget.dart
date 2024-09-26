@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:note_mock/app/app_constant.dart';
@@ -7,11 +8,18 @@ import 'package:note_mock/controller/note_controller.dart';
 import 'package:note_mock/gen/assets.gen.dart';
 import 'package:note_mock/screen/dashboard/component/summary_record_item.dart';
 
-class SummaryWidget extends HookConsumerWidget {
+class SummaryWidget extends StatefulHookConsumerWidget {
   const SummaryWidget({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SummaryWidget> createState() => _SummaryWidgetState();
+}
+
+class _SummaryWidgetState extends ConsumerState<SummaryWidget>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
     final noteViewModel = ref.watch(noteProvider);
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -96,7 +104,13 @@ class SummaryWidget extends HookConsumerWidget {
                       ),
                       gapHeight80,
                       gapHeight80,
-                    ],
+                    ]
+                        .animate(interval: 100.ms, delay: 100.ms)
+                        .fade(duration: 300.ms)
+                        .slide(
+                            duration: 300.ms,
+                            begin: const Offset(0, 5),
+                            curve: Curves.easeInOut),
                   ),
                 ),
               ),
@@ -106,4 +120,7 @@ class SummaryWidget extends HookConsumerWidget {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

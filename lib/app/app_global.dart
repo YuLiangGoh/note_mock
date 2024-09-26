@@ -115,17 +115,20 @@ TextStyle textStyleW700({double? fontSize, Color? color, double? height}) =>
     );
 
 /// A constant [TextStyle] with a font weight of [FontWeight.w600].
-TextStyle textStyleW600(
-        {double? fontSize,
-        Color? color,
-        double? height,
-        TextDecoration? textDecoration}) =>
+TextStyle textStyleW600({
+  double? fontSize,
+  Color? color,
+  double? height,
+  TextDecoration? textDecoration,
+  double? wordSpacing,
+}) =>
     TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: fontSize?.sp,
       color: color ?? AppColor.white,
       height: height,
       decoration: textDecoration,
+      wordSpacing: wordSpacing,
     );
 
 /// A constant [TextStyle] with a font weight of [FontWeight.w500].
